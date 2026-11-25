@@ -1,0 +1,15 @@
+CXX ?= g++
+CXXFLAGS ?= -std=c++17 -Wall -Wextra -pedantic
+SOURCES := main.cpp Database.cpp MyArray.cpp ForwardList.cpp DoublyList.cpp MyStack.cpp MyQueue.cpp CompleteBinaryTree.cpp
+OBJECTS := $(SOURCES:.cpp=.o)
+TARGET := dbms_cpp
+.PHONY: all clean
+all: $(TARGET)
+$(TARGET): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $@
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
+-include $(OBJECTS:.o=.d)
+clean:
+	rm -f $(OBJECTS) $(OBJECTS:.o=.d) $(TARGET)
+
