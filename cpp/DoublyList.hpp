@@ -1,3 +1,5 @@
 #pragma once
 #include "ForwardList.hpp"
-struct Doublelist : List { Doublelist();  };
+struct Doublelist : List {
+    Doublelist();
+};

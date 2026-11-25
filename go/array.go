@@ -22,8 +22,16 @@ func (m *Array) insert(i int, s string) {
 	m.a[i] = s
 	m.n++
 }
-func (m *Array) append(s string) { m.insert(m.n, s) }
-func (m *Array) at(i int) string { check(i < m.n, "index out of range"); return m.a[i] }
+
+func (m *Array) append(s string) {
+	m.insert(m.n, s)
+}
+
+func (m *Array) at(i int) string {
+	check(i < m.n, "index out of range")
+	return m.a[i]
+}
+
 func (m *Array) erase(i int) string {
 	s := m.at(i)
 	for j := i + 1; j < m.n; j++ {
@@ -33,4 +41,7 @@ func (m *Array) erase(i int) string {
 	m.a[m.n] = ""
 	return s
 }
-func (m *Array) values() []string { return m.a[:m.n] }
+
+func (m *Array) values() []string {
+	return m.a[:m.n]
+}

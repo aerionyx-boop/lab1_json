@@ -1,2 +1,3 @@
 #include "DoublyList.hpp"
-Doublelist::Doublelist():List(true) {}
+Doublelist::Doublelist() : List(true) {
+}

@@ -18,6 +18,7 @@ func (l *List) find(s string) *Node {
 	}
 	return nil
 }
+
 func (l *List) prev(p *Node) *Node {
 	if l.doub {
 		return p.prev
@@ -32,6 +33,7 @@ func (l *List) prev(p *Node) *Node {
 	}
 	return nil
 }
+
 func (l *List) at(i int) *Node {
 	check(i < l.n, "index out of range")
 	p := l.head
@@ -40,6 +42,7 @@ func (l *List) at(i int) *Node {
 	}
 	return p
 }
+
 func (l *List) after(p *Node, s string) {
 	q := &Node{s: s}
 	if p == nil {
@@ -60,7 +63,11 @@ func (l *List) after(p *Node, s string) {
 	}
 	l.n++
 }
-func (l *List) append(s string) { l.after(l.tail, s) }
+
+func (l *List) append(s string) {
+	l.after(l.tail, s)
+}
+
 func (l *List) eraseAfter(p *Node) string {
 	q := l.head
 	if p != nil {
@@ -81,6 +88,7 @@ func (l *List) eraseAfter(p *Node) string {
 	l.n--
 	return q.s
 }
+
 func (l *List) values() []string {
 	v := make([]string, 0, l.n)
 	for p := l.head; p != nil; p = p.next {
@@ -88,6 +96,7 @@ func (l *List) values() []string {
 	}
 	return v
 }
+
 func (l *List) reverse() []string {
 	if l.doub {
 		v := make([]string, 0, l.n)
@@ -105,4 +114,6 @@ func (l *List) reverse() []string {
 
 type ForwardList struct{ List }
 
-func newForwardList() *ForwardList { return &ForwardList{} }
+func newForwardList() *ForwardList {
+	return &ForwardList{}
+}

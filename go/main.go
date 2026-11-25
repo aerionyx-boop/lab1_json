@@ -13,6 +13,7 @@ func check(b bool, msg string) {
 		panic(msg)
 	}
 }
+
 func index(s string) int {
 	for _, c := range s {
 		check(c >= '0' && c <= '9', "invalid index")

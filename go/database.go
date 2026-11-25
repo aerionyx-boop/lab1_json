@@ -59,6 +59,7 @@ func load(file string) DB {
 	}
 	return db
 }
+
 func save(db DB, file string) {
 	records := map[string]Record{}
 	for name, p := range db {
@@ -74,7 +75,11 @@ func save(db DB, file string) {
 	check(os.WriteFile(tmp, append(raw, '\n'), 0644) == nil, "cannot write file")
 	check(os.Rename(tmp, file) == nil, "rename error")
 }
-func printValues(v []string) { fmt.Println(strings.Join(v, " ")) }
+
+func printValues(v []string) {
+	fmt.Println(strings.Join(v, " "))
+}
+
 func run(db DB, a []string, reportMode bool) bool {
 	check(len(a) >= 2, "command and name required")
 	c, name := a[0], a[1]
