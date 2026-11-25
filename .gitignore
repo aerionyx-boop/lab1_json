@@ -1,9 +1,0 @@
-.DS_Store
-*.o
-*.d
-/dbms
-/dbms_go
-/cpp/dbms_cpp
-/go/dbms
-data.json
-data.json.tmp
